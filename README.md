@@ -1,1 +1,3 @@
 # ProjectDCS
+# Students
+Jacob Seadorf
