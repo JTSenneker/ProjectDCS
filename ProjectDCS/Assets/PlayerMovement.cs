@@ -8,11 +8,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 	public float speed = 7.0f;
-	public float lookSpeedH = 2.0f;
-	public float lookSpeedV = 2.0f;
-	public float yaw = 0.0f;
-	public float pitch = 0.0f;
+	public float sensitivity = 1.0f;
+	public Vector2 pitchBounds;
+	public Transform eyes;
 
+	private float yaw;
+	private float pitch;
+	private float moveH;
+	private float moveV;
 
 
 	void Start() {
@@ -22,16 +25,21 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update() {
 		//Player movement
-		float translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-		float strafe = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+		moveH = Input.GetAxis("Horizontal");
+		moveV = Input.GetAxis("Vertical");
+
+		transform.position += transform.forward * moveV * speed * Time.deltaTime;
+		transform.position += transform.right * moveH * speed * Time.deltaTime;
 
 		//Mouse movement
-		yaw += lookSpeedH * Input.GetAxis("Mouse X");
-		pitch -= lookSpeedV * Input.GetAxis("Mouse Y");
+		yaw += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+		pitch -= Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
-		transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+		pitch = Mathf.Clamp(pitch, pitchBounds.x, pitchBounds.y);
 
-		transform.Translate(strafe, 0, translation);
+		transform.rotation = Quaternion.Euler(0, yaw, 0);
+		eyes.localEulerAngles = new Vector3(pitch, 0, 0);
+
 		if(Input.GetKeyDown("escape")) {
 			Cursor.lockState = CursorLockMode.None;
 		}
