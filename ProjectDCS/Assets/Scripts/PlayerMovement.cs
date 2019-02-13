@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour {
 	public Vector2 pitchBounds; //limits of how far we can look up or down, X default is -72, Y default is 73
 	public Transform eyes; //camera child object of the player
     public Rigidbody rb;
-    public CapsuleCollider collider;
+    bool isOnGround = true;   
     public float jumpForce = 5.0f; //how high the player jumps
 
     private float yaw;
@@ -19,7 +19,10 @@ public class PlayerMovement : MonoBehaviour {
 	void Start() {
 		Cursor.lockState = CursorLockMode.Locked; //hide cursor
         rb = GetComponent<Rigidbody>();
-        collider = GetComponent<CapsuleCollider>();
+    }
+
+    void OnCollisionStay() {
+        isOnGround = true;
     }
 
     void Update() {
@@ -45,8 +48,9 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
         //jumping
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);           
+        if(Input.GetKeyDown(KeyCode.Space) && isOnGround) {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isOnGround = false;
         }
     }
 
