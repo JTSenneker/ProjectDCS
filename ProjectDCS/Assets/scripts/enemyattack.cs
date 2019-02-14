@@ -7,7 +7,7 @@ public class enemyattack : MonoBehaviour
 {
     public float maxditcance;
     public float cooldowntime;
-    public playerhealth ph;
+    
 
     private Transform mytransform;
     public Transform target;
@@ -22,7 +22,7 @@ public class enemyattack : MonoBehaviour
         cooldowntime = 1;
         controller = this.gameObject.GetComponent<Animator>();
 
-        ph = (playerhealth)target.GetComponent(typeof(playerhealth));
+       
     }
 
     // Update is called once per frame
@@ -44,7 +44,7 @@ public class enemyattack : MonoBehaviour
     {
         if (cooldowntime == 0)
         {
-            ph.changehealth(-10);
+            
             cooldowntime = 1;
         }
 
