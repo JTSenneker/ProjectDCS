@@ -5,6 +5,16 @@ using UnityEngine.UI;
 
 public class HealthText : MonoBehaviour
 {
+    public enum ClassType
+    {
+        TANK,
+        MEDIC,
+        SNIPER,
+        LIGHT
+    }
+
+    public ClassType classType;
+
     public Text healthText;
     int health = 0;
 
@@ -21,7 +31,7 @@ public class HealthText : MonoBehaviour
     {
         if (Time.time > nextActionTime)
         {
-            nextActionTime += period;
+            nextActionTime += Time.time + period;
             
         }
     }
