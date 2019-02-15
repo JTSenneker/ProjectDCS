@@ -7,20 +7,21 @@ using UnityEngine.AI;
 public class enimiemovment : MonoBehaviour
 {
     NavMeshAgent agent;
-   public Transform human;
-   
+    public Transform target;
+
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-       
-        
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
+
     }
 
     void Update()
     {
 
-        agent.SetDestination(human.position);
+        agent.SetDestination(target.position);
     }
 
 

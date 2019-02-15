@@ -9,12 +9,12 @@ public class health : MonoBehaviour
 {
     public float h = 100f;
     
-   public Animator final;
+   
     
 
     private void Start()
     {
-        final = this.gameObject.GetComponent<Animator>();
+        
        
 
     }
@@ -30,7 +30,7 @@ public class health : MonoBehaviour
     }
     void die()
     {
-        final.Play("die");
+       
         Destroy(gameObject);
         
     }
