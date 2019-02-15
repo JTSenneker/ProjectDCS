@@ -11,7 +11,7 @@ public class enemyattack : MonoBehaviour
 
     private Transform mytransform;
     public Transform target;
-     Animator controller;
+     
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,7 @@ public class enemyattack : MonoBehaviour
         mytransform = transform;
         maxditcance = 3;
         cooldowntime = 1;
-        controller = this.gameObject.GetComponent<Animator>();
+       
 
        
     }
@@ -32,7 +32,7 @@ public class enemyattack : MonoBehaviour
         if (distance < maxditcance)
         {
             attack();
-            controller.Play("attack");
+            
             
         }
         if (cooldowntime > 0)
