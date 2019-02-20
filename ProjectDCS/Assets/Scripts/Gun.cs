@@ -6,7 +6,7 @@ public class Gun : MonoBehaviour {
 	public float damage = 10f; //how much damage the gun will do
 	public float range = 100f; //how far the ray will go before not registering a hit
 	public Camera fpsCam;
-    ParticleSystem ps;
+   public ParticleSystem ps;
 
     // Start is called before the first frame update
     void Start() {
