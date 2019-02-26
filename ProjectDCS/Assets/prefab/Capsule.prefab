@@ -90,10 +90,10 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692322267956018754}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 1
+  m_Height: 2.21
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &1692322267956018752
@@ -162,3 +162,5 @@ MonoBehaviour:
   enemy: {fileID: 1692322267956018754}
   spawnPoints:
   - {fileID: 1692322267956018756}
+  drops:
+  - {fileID: 6047595288965161003, guid: 8db4020c2b9eab2448672b22b402caaf, type: 3}

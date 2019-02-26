@@ -11,7 +11,7 @@ public class health : MonoBehaviour
 
     public GameObject enemy;
     public Transform[] spawnPoints;
-
+    public GameObject[] drops;
     private void Start()
     {
         
@@ -31,9 +31,11 @@ public class health : MonoBehaviour
     void die()
     {
        
+        
+        int dropIndex = Random.Range(0, drops.Length);
+        Instantiate(drops[dropIndex], transform.position, Quaternion.identity);
         Destroy(gameObject);
-        int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-        Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+        //Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 
     }
 
