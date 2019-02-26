@@ -31,7 +31,7 @@ public class enemyattack : MonoBehaviour
         float distance = Vector3.Distance(target.position, mytransform.position);
         if (distance < maxditcance)
         {
-            attack();
+           
             
             
         }
@@ -40,13 +40,11 @@ public class enemyattack : MonoBehaviour
             cooldowntime = cooldowntime * Time.deltaTime;
         }
     }
-    void attack()
+    void Ontriggerenter(Collider other)
     {
-        if (cooldowntime == 0)
+        if (target == null)
         {
-            
-            cooldowntime = 1;
+            target = other.transform;
         }
-
     }
 }
