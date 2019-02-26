@@ -3,10 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Speed_Small_Prefab
-  - Speed_Normal_Prefab
-  - Speed_Big_Prefab
+  tags: []
   layers:
   - Default
   - TransparentFX
