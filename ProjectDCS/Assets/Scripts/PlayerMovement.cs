@@ -6,11 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float speed = 7.0f; //walk speed
 	public Transform eyes; //camera child object of the player
     public Rigidbody rb;
-<<<<<<< HEAD
     bool isOnGround = true;
-=======
-    public CapsuleCollider collider;
->>>>>>> parent of 68f9ede... Added raycasting
     public float jumpForce = 5.0f; //how high the player jumps
 
     public float mouseSensitivity = 100.0f; //mouse look speed/right analog stick look speed, default 100
@@ -41,16 +37,12 @@ public class PlayerMovement : MonoBehaviour {
         // Other
         Cursor.lockState = CursorLockMode.Locked; //hide cursor
         rb = GetComponent<Rigidbody>();
-<<<<<<< HEAD
         // Invoke
         InvokeRepeating("PerSecondUpdate", 0.0f, 1.0f);
     }
 
     void OnCollisionStay() {
         isOnGround = true;
-=======
-        collider = GetComponent<CapsuleCollider>();
->>>>>>> parent of 68f9ede... Added raycasting
     }
 
     void Update() {
@@ -80,14 +72,9 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         //jumping
-<<<<<<< HEAD
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround) {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
-=======
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);           
->>>>>>> parent of 68f9ede... Added raycasting
         }
     }
 
