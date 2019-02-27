@@ -11,6 +11,7 @@ public class enemyattack : MonoBehaviour
 
     private Transform mytransform;
     public Transform target;
+    public playerhealth ph; 
      
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,7 @@ public class enemyattack : MonoBehaviour
         float distance = Vector3.Distance(target.position, mytransform.position);
         if (distance < maxditcance)
         {
-           
+            
             
             
         }
@@ -42,12 +43,18 @@ public class enemyattack : MonoBehaviour
     }
     void Ontriggerenter(Collider other)
     {
+
         if (other.tag == "player")
         {
             if (target == null)
             {
-                target = other.transform;
+                target = target.transform;
+
             }
-        }  
+
+
+        }
+
+
     }
 }
