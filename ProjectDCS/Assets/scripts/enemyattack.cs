@@ -42,9 +42,12 @@ public class enemyattack : MonoBehaviour
     }
     void Ontriggerenter(Collider other)
     {
-        if (target == null)
+        if (other.tag == "player")
         {
-            target = other.transform;
-        }
+            if (target == null)
+            {
+                target = other.transform;
+            }
+        }  
     }
 }
