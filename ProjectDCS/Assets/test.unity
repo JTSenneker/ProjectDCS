@@ -820,7 +820,7 @@ PrefabInstance:
     - target: {fileID: 1692322267956018757, guid: 34a74eadbecd46d40b4af1f7856fbcc3,
         type: 3}
       propertyPath: drops.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1692322267956018757, guid: 34a74eadbecd46d40b4af1f7856fbcc3,
         type: 3}
@@ -837,6 +837,12 @@ PrefabInstance:
       propertyPath: drops.Array.data[0]
       value: 
       objectReference: {fileID: 6047595288965161003, guid: 8db4020c2b9eab2448672b22b402caaf,
+        type: 3}
+    - target: {fileID: 1692322267956018757, guid: 34a74eadbecd46d40b4af1f7856fbcc3,
+        type: 3}
+      propertyPath: drops.Array.data[1]
+      value: 
+      objectReference: {fileID: 887607931566380327, guid: 4bffd3ce96178404ab4a9122eebf3ece,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34a74eadbecd46d40b4af1f7856fbcc3, type: 3}
