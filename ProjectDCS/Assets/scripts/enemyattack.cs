@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.UI;
 
 public class enemyattack : MonoBehaviour
 {
     public float maxditcance;
     public float cooldowntime;
+    public Text healthtext;
     
 
     private Transform mytransform;
@@ -32,8 +34,8 @@ public class enemyattack : MonoBehaviour
         float distance = Vector3.Distance(target.position, mytransform.position);
         if (distance < maxditcance)
         {
-            
-            
+
+           
             
         }
         if (cooldowntime > 0)
@@ -44,11 +46,14 @@ public class enemyattack : MonoBehaviour
     void Ontriggerenter(Collider other)
     {
 
-        if (other.tag == "player")
+        if (other.tag == "Player")
         {
             if (target == null)
             {
                 target = target.transform;
+                ph.currenthealth = ph.currenthealth - 50;
+                healthtext.text = "current health: " + ph.currenthealth.ToString();
+                Debug.Log("hit");
 
             }
 
