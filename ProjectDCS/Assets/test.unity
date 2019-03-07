@@ -812,6 +812,11 @@ PrefabInstance:
       propertyPath: ph
       value: 
       objectReference: {fileID: 192977245}
+    - target: {fileID: 1692322267956018762, guid: 34a74eadbecd46d40b4af1f7856fbcc3,
+        type: 3}
+      propertyPath: healthtext
+      value: 
+      objectReference: {fileID: 507828731}
     - target: {fileID: 1692322267956018757, guid: 34a74eadbecd46d40b4af1f7856fbcc3,
         type: 3}
       propertyPath: spawnPoints.Array.size
