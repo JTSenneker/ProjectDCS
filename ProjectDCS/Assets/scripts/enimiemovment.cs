@@ -6,14 +6,14 @@ using UnityEngine.AI;
 
 public class enimiemovment : MonoBehaviour
 {
-    NavMeshAgent agent;
+     public NavMeshAgent agent;
     public Transform target;
 
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        //target = GameObject.FindGameObjectWithTag("Player").transform;
 
 
     }
@@ -22,6 +22,11 @@ public class enimiemovment : MonoBehaviour
     {
 
         agent.SetDestination(target.position);
+    }
+
+     public void SetTarget(Transform Target)
+    {
+        target = Target; 
     }
 
 
