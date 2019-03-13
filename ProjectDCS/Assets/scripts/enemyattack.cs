@@ -52,8 +52,7 @@ public class enemyattack : MonoBehaviour
                 playerInRange = false;
                 break;
             case EnemyState.Attacking:
-
-
+                Attack();
                 break;
         }
 
@@ -90,11 +89,12 @@ public class enemyattack : MonoBehaviour
 
     }
 
-    void Attack()
+   public  void Attack()
     {
         // Reset the timer.
         timer = 0f;
-
+        
+        playerInRange = true;
         // If the player has health to lose...
         if (ph.currenthealth > 0)
         {
@@ -102,6 +102,7 @@ public class enemyattack : MonoBehaviour
             // ... damage the player.
             ph.currenthealth = ph.currenthealth - 50;
         }
+        state = EnemyState.Aggro;
     }
 }
 

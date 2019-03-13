@@ -134,6 +134,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &17207794 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1692322267956018757, guid: 34a74eadbecd46d40b4af1f7856fbcc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1692322266909741666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17207792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a56cb164236c34492a258017359dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &17207797 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 1692322267956018752, guid: 34a74eadbecd46d40b4af1f7856fbcc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1692322266909741666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &18376370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0,
@@ -818,6 +836,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 18376370}
+    - target: {fileID: 1692322267956018755, guid: 34a74eadbecd46d40b4af1f7856fbcc3,
+        type: 3}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 17207797}
     - target: {fileID: 1692322267956018762, guid: 34a74eadbecd46d40b4af1f7856fbcc3,
         type: 3}
       propertyPath: target
@@ -833,6 +856,11 @@ PrefabInstance:
       propertyPath: healthtext
       value: 
       objectReference: {fileID: 507828731}
+    - target: {fileID: 1692322267956018762, guid: 34a74eadbecd46d40b4af1f7856fbcc3,
+        type: 3}
+      propertyPath: enemyhealth
+      value: 
+      objectReference: {fileID: 17207794}
     - target: {fileID: 1692322267956018757, guid: 34a74eadbecd46d40b4af1f7856fbcc3,
         type: 3}
       propertyPath: spawnPoints.Array.size
