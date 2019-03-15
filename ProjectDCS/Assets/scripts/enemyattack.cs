@@ -100,7 +100,7 @@ public class enemyattack : MonoBehaviour
         {
             state = EnemyState.Attacking;
             // ... damage the player.
-            ph.currenthealth = ph.currenthealth - 50;
+            ph.currenthealth = ph.currenthealth - 10;
         }
         state = EnemyState.Aggro;
     }
