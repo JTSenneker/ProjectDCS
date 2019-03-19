@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+    public int controllerId = 0;
 	public float speed = 7.0f; //walk speed
 	public Transform eyes; //camera child object of the player
     public Rigidbody rb;
@@ -26,6 +27,8 @@ public class PlayerMovement : MonoBehaviour {
     private float speedBoost = 1.0f; // Factor of 1. 0.9 = 90%; 2.0 = 200%
     public int speedCooldown = 0; // Cooldown in  seconds.
 
+    Animator anim;
+
     void Start() {
         // Make the rigid body not change rotation
         Vector3 rot = transform.localRotation.eulerAngles;
@@ -37,6 +40,7 @@ public class PlayerMovement : MonoBehaviour {
         // Other
         Cursor.lockState = CursorLockMode.Locked; //hide cursor
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
         // Invoke
         InvokeRepeating("PerSecondUpdate", 0.0f, 1.0f);
     }
@@ -47,15 +51,15 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update() {
         //Player movement
-        moveH = Input.GetAxis("Horizontal");
-        moveV = Input.GetAxis("Vertical");
+        moveH = Input.GetAxis("Horizontal" + controllerId);
+        moveV = Input.GetAxis("Vertical" + controllerId);
 
         transform.position += transform.forward * moveV * speedBoost * speed * Time.deltaTime;
         transform.position += transform.right * moveH * speedBoost * speed * Time.deltaTime;
 
         //Mouse movement
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = -Input.GetAxis("Mouse Y");
+        float mouseX = Input.GetAxis("Mouse X" + controllerId);
+        float mouseY = -Input.GetAxis("Mouse Y" + controllerId);
 
         rotY += mouseX * mouseSensitivity * Time.deltaTime;
         rotX += mouseY * mouseSensitivity * Time.deltaTime;
@@ -72,6 +76,7 @@ public class PlayerMovement : MonoBehaviour {
 
         //jumping
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround) {
+            anim.SetTrigger("Jump");
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
         }
