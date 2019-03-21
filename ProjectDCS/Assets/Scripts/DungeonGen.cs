@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class DungeonGen : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject enemy;
+    public int enemyAmount = 10;
+
+
     public int cols = 5;
     public int rows = 5;
 
@@ -32,4 +37,13 @@ public class DungeonGen : MonoBehaviour
     {
         
     }
+
+    void SpawnObject()
+    {
+        //for(int i = 0; i < roomPrefabs.Count; i++)
+        {
+
+        }
+    }
+
 }
