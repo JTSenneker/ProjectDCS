@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class PlayerMovement : MonoBehaviour {
+    Player player;
     public int controllerId = 0;
 	public float speed = 7.0f; //walk speed
 	public Transform eyes; //camera child object of the player
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour {
     Animator anim;
 
     void Start() {
+        player = ReInput.players.GetPlayer(controllerId);
         // Make the rigid body not change rotation
         Vector3 rot = transform.localRotation.eulerAngles;
         rotY = rot.y;
@@ -51,15 +54,15 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update() {
         //Player movement
-        moveH = Input.GetAxis("Horizontal" + controllerId);
-        moveV = Input.GetAxis("Vertical" + controllerId);
+        moveH = player.GetAxis("Horizontal");
+        moveV = player.GetAxis("Vertical");
 
         transform.position += transform.forward * moveV * speedBoost * speed * Time.deltaTime;
         transform.position += transform.right * moveH * speedBoost * speed * Time.deltaTime;
 
         //Mouse movement
-        float mouseX = Input.GetAxis("Mouse X" + controllerId);
-        float mouseY = -Input.GetAxis("Mouse Y" + controllerId);
+        float mouseX = player.GetAxis("Camera X");
+        float mouseY = -player.GetAxis("Camera Y");
 
         rotY += mouseX * mouseSensitivity * Time.deltaTime;
         rotX += mouseY * mouseSensitivity * Time.deltaTime;
