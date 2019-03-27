@@ -46,11 +46,12 @@ public class PlayerMovement : MonoBehaviour {
         rb.useGravity = false;
     }
 
-    void Update() {
+    void FixedUpdate() {
         //Player movement
         moveH = Input.GetAxis("Horizontal");
         moveV = Input.GetAxis("Vertical");
-
+        
+       
         transform.position += transform.forward * moveV * speedBoost * speed * Time.deltaTime;
         transform.position += transform.right * moveH * speedBoost * speed * Time.deltaTime;
 

@@ -102,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3190403793286701383}
   - component: {fileID: 8102223414121656045}
-  - component: {fileID: 8044429593881174117}
+  - component: {fileID: 6541181026839263692}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -142,7 +142,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8044429593881174117
+--- !u!114 &6541181026839263692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,6 +165,9 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   speedCooldown: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &5509494163064142656
 GameObject:
   m_ObjectHideFlags: 0
