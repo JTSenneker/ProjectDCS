@@ -74,12 +74,12 @@ public class PlayerMovement : MonoBehaviour {
         transform.rotation = localRotation;
         eyes.localRotation = Quaternion.Euler(rotX, 0.0f, 0.0f);
 
-        if (Input.GetKeyDown("escape")) {
+        if (player.GetButtonDown("Pause")) {
             Cursor.lockState = CursorLockMode.None; //show cursor
         }
 
         //jumping
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround) {
+        if (player.GetButtonDown("Jump") && isOnGround) {
             anim.SetTrigger("Jump");
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
