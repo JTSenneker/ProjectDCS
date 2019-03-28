@@ -34,8 +34,9 @@ public class GameManager : MonoBehaviour
  
 
     public void AddPlayer(int id) {
-        if (ReInput.controllers.GetController<Joystick>(id) != null) return;
-        if (ReInput.controllers.GetController<Keyboard>(id) != null) return;
+       foreach(PlayerMovement p in players) {
+            if (p.controllerId == id) return;
+        }
 
         Debug.Log("Player Joined.");
         GameObject obj = new GameObject();
