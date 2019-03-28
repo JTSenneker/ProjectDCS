@@ -269,6 +269,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1065007341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1065007343}
+  - component: {fileID: 1065007342}
+  m_Layer: 0
+  m_Name: DungeonGenorator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1065007342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065007341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f656bef9219a58f4dad7dfffa6dac999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1693669485}
+  enemy: {fileID: 0}
+  enemyAmount: 10
+  cols: 5
+  rows: 5
+  roomW: 50
+  roomH: 50
+  roomPrefabs:
+  - {fileID: 4035609649116099304, guid: 4acca6fba2e650e4c9d317b90d6588e3, type: 3}
+  - {fileID: 4035609649116099304, guid: ee6c95c4fa6094c44b19f56ff0f13f0c, type: 3}
+  - {fileID: 4035609649116099304, guid: 225a6acd79f362546a49ba443d87dffa, type: 3}
+  - {fileID: 4035609649116099304, guid: 99b39b0de91322544a9746883bffdb88, type: 3}
+  - {fileID: 4035609649116099304, guid: e8e1d50391dff974eabcd8d43967d540, type: 3}
+  - {fileID: 4035609649116099304, guid: c7b5a99a01c9f3d46876b36231a23bef, type: 3}
+--- !u!4 &1065007343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065007341}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1313008399
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,8 +500,24 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8485759838703495277, guid: 9b67739858d8dc140b9534930f220fba,
+        type: 3}
+      propertyPath: m_Name
+      value: CamUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8487505163623203822, guid: 9b67739858d8dc140b9534930f220fba,
+        type: 3}
+      propertyPath: m_Depth
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b67739858d8dc140b9534930f220fba, type: 3}
+--- !u!1 &1693669485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 589667946, guid: 9b67739858d8dc140b9534930f220fba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1693669484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1917880917
 GameObject:
   m_ObjectHideFlags: 0

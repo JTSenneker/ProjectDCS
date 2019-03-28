@@ -57,16 +57,25 @@ public class GameManager : MonoBehaviour
 
         if(players.Count == 2) {
             players[0].eyes.GetComponent<Camera>().rect = new Rect(0, .5f, 1, .5f);
+            players[0].UICam.rect = new Rect(0, .5f, 1, .5f);
             players[1].eyes.GetComponent<Camera>().rect = new Rect(0, 0, 1, .5f);
+            players[1].UICam.rect = new Rect(0, 0f, 1, .5f);
         } else if (players.Count == 3) {
             players[0].eyes.GetComponent<Camera>().rect = new Rect(0, .5f, 1, .5f);
+            players[0].UICam.rect = new Rect(0, .5f, 1, .5f);
             players[1].eyes.GetComponent<Camera>().rect = new Rect(0, 0, .5f, .5f);
+            players[1].UICam.rect = new Rect(0, 0, .5f, .5f);
             players[2].eyes.GetComponent<Camera>().rect = new Rect(.5f, 0, .5f, .5f);
+            players[2].UICam.rect = new Rect(.5f, 0, .5f, .5f);
         } else if (players.Count == 4) {
             players[0].eyes.GetComponent<Camera>().rect = new Rect(0, .5f, .5f, .5f);
+            players[0].UICam.rect = new Rect(0, .5f, .5f, .5f);
             players[1].eyes.GetComponent<Camera>().rect = new Rect(.5f, .5f, .5f, .5f);
+            players[1].UICam.rect = new Rect(.5f, .5f, .5f, .5f);
             players[2].eyes.GetComponent<Camera>().rect = new Rect(0, 0, .5f, .5f);
+            players[2].UICam.rect = new Rect(0, 0, .5f, .5f);
             players[3].eyes.GetComponent<Camera>().rect = new Rect(.5f, 0, .5f, .5f);
+            players[3].UICam.rect = new Rect(.5f, 0, .5f, .5f);
         }
     }
 }

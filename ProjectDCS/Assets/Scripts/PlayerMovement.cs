@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     public int controllerId = 0;
 	public float speed = 7.0f; //walk speed
 	public Transform eyes; //camera child object of the player
+    public Camera UICam;
     public Rigidbody rb;
     bool isOnGround = true;
     public float jumpForce = 5.0f; //how high the player jumps
