@@ -141,12 +141,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f656bef9219a58f4dad7dfffa6dac999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  enemy: {fileID: 0}
+  enemyAmount: 10
   cols: 5
   rows: 5
   roomW: 50
   roomH: 50
   roomPrefabs:
   - {fileID: 4035609649116099304, guid: 4acca6fba2e650e4c9d317b90d6588e3, type: 3}
+  - {fileID: 4035609649116099304, guid: ee6c95c4fa6094c44b19f56ff0f13f0c, type: 3}
+  - {fileID: 4035609649116099304, guid: 225a6acd79f362546a49ba443d87dffa, type: 3}
+  - {fileID: 4035609649116099304, guid: 99b39b0de91322544a9746883bffdb88, type: 3}
+  - {fileID: 4035609649116099304, guid: e8e1d50391dff974eabcd8d43967d540, type: 3}
+  - {fileID: 4035609649116099304, guid: c7b5a99a01c9f3d46876b36231a23bef, type: 3}
 --- !u!4 &126264029
 Transform:
   m_ObjectHideFlags: 0
