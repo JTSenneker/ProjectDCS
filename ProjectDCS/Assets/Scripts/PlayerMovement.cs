@@ -30,6 +30,12 @@ public class PlayerMovement : MonoBehaviour {
     private float speedBoost = 1.0f; // Factor of 1. 0.9 = 90%; 2.0 = 200%
     public int speedCooldown = 0; // Cooldown in  seconds.
 
+    // Sounds
+    public AudioSource audioHandler;
+    public AudioClip[] footsteps;
+    public AudioClip jump;
+    public AudioClip land;
+
     Animator anim;
 
     void Start() {
@@ -50,10 +56,17 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void OnCollisionStay() {
+        audioHandler.clip = land;
+        audioHandler.Play();
+
         isOnGround = true;
     }
 
     void Update() {
+        if (player.GetButtonDown("")) {
+
+        }
+
         //Player movement
         moveH = player.GetAxis("Horizontal");
         moveV = player.GetAxis("Vertical");
@@ -82,6 +95,10 @@ public class PlayerMovement : MonoBehaviour {
         if (player.GetButtonDown("Jump") && isOnGround) {
             anim.SetTrigger("Jump");
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            audioHandler.clip = jump;
+            audioHandler.Play();
+
             isOnGround = false;
         }
     }
