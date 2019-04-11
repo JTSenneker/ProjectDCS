@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class mainMenu : MonoBehaviour {
@@ -8,6 +9,7 @@ public class mainMenu : MonoBehaviour {
         //load the next scene in the queue
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
 
     public void quitGame() {
 
