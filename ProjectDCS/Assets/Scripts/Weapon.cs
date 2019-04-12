@@ -15,14 +15,16 @@ public class Weapon : MonoBehaviour
     public ShootType shootType;
     public GameObject projectile;
     public Transform projectileSpawnpoint;
-    public FirstPersonController fpc;
-    public GameManager gm;
+    //public FirstPersonController fpc;
+    //public PlayerManager pm;
     private Player player;
+
+    int controllerId = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = ReInput.players.GetPlayer(gm.controllerId);
+        player = ReInput.players.GetPlayer(controllerId);
     }
 
     // Update is called once per frame
