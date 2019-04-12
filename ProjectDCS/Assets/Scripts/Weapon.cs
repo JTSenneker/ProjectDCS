@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 
+using UnityStandardAssets.Characters.FirstPerson;
+
 public enum ShootType {
     PROJECTILE,
     RAYCAST
@@ -13,13 +15,14 @@ public class Weapon : MonoBehaviour
     public ShootType shootType;
     public GameObject projectile;
     public Transform projectileSpawnpoint;
-    public UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpc;
+    public FirstPersonController fpc;
+    public GameManager gm;
     private Player player;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = ReInput.players.GetPlayer(fpc.controllerId);
+        player = ReInput.players.GetPlayer(gm.controllerId);
     }
 
     // Update is called once per frame
