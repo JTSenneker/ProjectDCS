@@ -1,3 +1,4 @@
+using Rewired;
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
@@ -42,9 +43,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        // I added
+        Player player;
+        public int controllerId = 0;
+
         // Use this for initialization
         private void Start()
         {
+            player = ReInput.players.GetPlayer(controllerId);
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -65,7 +71,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
             {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+                m_Jump = player.GetButtonDown("Jump");
             }
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
@@ -81,6 +87,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+
+            if (player.GetButtonDown("Pause")) {
+                Cursor.lockState = CursorLockMode.None; //show cursor
+            }
         }
 
 
@@ -204,8 +214,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void GetInput(out float speed)
         {
             // Read input
-            float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
-            float vertical = CrossPlatformInputManager.GetAxis("Vertical");
+            float horizontal = player.GetAxis("Horizontal");
+            float vertical = player.GetAxis("Vertical");
 
             bool waswalking = m_IsWalking;
 
@@ -236,7 +246,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void RotateView()
         {
-            m_MouseLook.LookRotation (transform, m_Camera.transform);
+            m_MouseLook.LookRotation (player, transform, m_Camera.transform);
         }
 
 

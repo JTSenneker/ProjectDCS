@@ -13,13 +13,13 @@ public class Weapon : MonoBehaviour
     public ShootType shootType;
     public GameObject projectile;
     public Transform projectileSpawnpoint;
-    public PlayerMovement playerMovement;
+    public UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpc;
     private Player player;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = ReInput.players.GetPlayer(playerMovement.controllerId);
+        player = ReInput.players.GetPlayer(fpc.controllerId);
     }
 
     // Update is called once per frame

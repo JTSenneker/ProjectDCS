@@ -1,3 +1,4 @@
+using Rewired;
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
@@ -89,6 +90,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private Vector3 m_GroundContactNormal;
         private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded;
 
+        // I added.
+        Player player;
+        public int controllerId = 0;
 
         public Vector3 Velocity
         {
@@ -120,6 +124,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void Start()
         {
+            player = ReInput.players.GetPlayer(controllerId);
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
             mouseLook.Init (transform, cam.transform);
@@ -130,7 +135,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             RotateView();
 
-            if (CrossPlatformInputManager.GetButtonDown("Jump") && !m_Jump)
+            if (player.GetButtonDown("Jump") && !m_Jump)
             {
                 m_Jump = true;
             }
@@ -214,8 +219,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             
             Vector2 input = new Vector2
                 {
-                    x = CrossPlatformInputManager.GetAxis("Horizontal"),
-                    y = CrossPlatformInputManager.GetAxis("Vertical")
+                    x = player.GetAxis("Horizontal"),
+                    y = player.GetAxis("Vertical")
                 };
 			movementSettings.UpdateDesiredTargetSpeed(input);
             return input;
@@ -230,7 +235,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // get the rotation before it's changed
             float oldYRotation = transform.eulerAngles.y;
 
-            mouseLook.LookRotation (transform, cam.transform);
+            mouseLook.LookRotation (player, transform, cam.transform);
 
             if (m_IsGrounded || advancedSettings.airControl)
             {
