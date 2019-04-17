@@ -180,6 +180,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  m_Camera: {fileID: 2000000}
+  UICam: {fileID: 7913256874790082261}
   controllerId: 0
 --- !u!54 &5400000
 Rigidbody:
@@ -735,6 +737,12 @@ PrefabInstance:
 --- !u!4 &2783661219022763192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2783661218146645384, guid: 6e035e9a8ff395b43866fdbbd2f17bd5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1950908720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &7913256874790082261 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7913256876598319077, guid: 6e035e9a8ff395b43866fdbbd2f17bd5,
     type: 3}
   m_PrefabInstance: {fileID: 1950908720}
   m_PrefabAsset: {fileID: 0}

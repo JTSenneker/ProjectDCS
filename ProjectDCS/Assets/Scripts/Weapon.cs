@@ -18,8 +18,9 @@ public class Weapon : MonoBehaviour
     //public FirstPersonController fpc;
     //public PlayerManager pm;
     private Player player;
+    //public List<FirstPersonController> players = new List<FirstPersonController>();
 
-    int controllerId = 0;
+    public int controllerId = 0;
 
     // Start is called before the first frame update
     void Start()

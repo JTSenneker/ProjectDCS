@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d35c02cedb0fb46a32717c7ca72af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerID: 1
+  controllerId: 0
 --- !u!4 &47187970
 Transform:
   m_ObjectHideFlags: 0
@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d35c02cedb0fb46a32717c7ca72af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerID: 2
+  controllerId: 0
 --- !u!4 &1024556532
 Transform:
   m_ObjectHideFlags: 0
