@@ -7,9 +7,9 @@ public class opendoor : MonoBehaviour
 {
     bool interactive;
    public void Open()
-    {
+   {
         Destroy(gameObject);
-    }
+   }
     // Start is called before the first frame update
     void Start()
     {
