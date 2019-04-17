@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     public int controllerId = 0;
 	public float speed = 7.0f; //walk speed
 	public Transform eyes; //camera child object of the player
+    public Camera UICam;
     public Rigidbody rb;
     bool isOnGround = true;
     public float jumpForce = 5.0f; //how high the player jumps
@@ -29,6 +30,12 @@ public class PlayerMovement : MonoBehaviour {
     private float speedBoost = 1.0f; // Factor of 1. 0.9 = 90%; 2.0 = 200%
     public int speedCooldown = 0; // Cooldown in  seconds.
 
+    // Sounds
+    /*public AudioSource audioHandler;
+    public AudioClip[] footsteps;
+    public AudioClip jump;
+    public AudioClip land;*/
+
     Animator anim;
 
     void Start() {
@@ -49,10 +56,21 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void OnCollisionStay() {
+        //audioHandler.clip = land;
+        //audioHandler.Play();
+
         isOnGround = true;
     }
 
     void Update() {
+        /*if (player.GetButtonDown("Up") || player.GetButtonDown("Down")) {
+            if (Time.deltaTime == 0.5f || Time.deltaTime == 1f) {
+                int f = Random.Range(1, 4);
+                audioHandler.clip = footsteps[f - 1];
+                audioHandler.Play();
+            }
+        }*/
+
         //Player movement
         moveH = player.GetAxis("Horizontal");
         moveV = player.GetAxis("Vertical");
@@ -73,14 +91,18 @@ public class PlayerMovement : MonoBehaviour {
         transform.rotation = localRotation;
         eyes.localRotation = Quaternion.Euler(rotX, 0.0f, 0.0f);
 
-        if (Input.GetKeyDown("escape")) {
+        if (player.GetButtonDown("Pause")) {
             Cursor.lockState = CursorLockMode.None; //show cursor
         }
 
         //jumping
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround) {
+        if (player.GetButtonDown("Jump") && isOnGround) {
             anim.SetTrigger("Jump");
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            //audioHandler.clip = jump;
+            //audioHandler.Play();
+
             isOnGround = false;
         }
     }

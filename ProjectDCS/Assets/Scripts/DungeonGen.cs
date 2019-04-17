@@ -21,9 +21,9 @@ public class DungeonGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int x = 0; x< cols; x++)
+        for (int x = 0; x < cols; x++)
         {
-            for(int y = 0; y< rows; y++)
+            for(int y = 0; y < rows; y++)
             {
                 GameObject randomRoom = roomPrefabs[Random.Range(0, roomPrefabs.Length)];
 

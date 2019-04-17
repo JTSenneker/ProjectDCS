@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 
+using UnityStandardAssets.Characters.FirstPerson;
+
 public enum RespawnType {
     ATPLAYER, ATPOS
 }
@@ -12,7 +14,7 @@ public class GameManager : MonoBehaviour
     public RespawnType respawnType;
 
     public static GameManager instance;
-    public List<PlayerMovement> players = new List<PlayerMovement>();
+    public List<FirstPersonController> players = new List<FirstPersonController>();
     public GameObject playerPrefab;
     public int startingId = 0;
     public Vector3 respawnPos = new Vector3(0, 0, 0);
@@ -25,8 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        players.Add(FindObjectOfType<PlayerMovement>());
+        players.Add(FindObjectOfType<FirstPersonController>());
         players[0].controllerId = 0;
     }
 
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
  
 
     public void AddPlayer(int id) {
-       foreach(PlayerMovement p in players) {
+       foreach(FirstPersonController p in players) {
             if (p.controllerId == id) return;
         }
 
@@ -50,23 +51,32 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
-        PlayerMovement player = obj.GetComponent<PlayerMovement>();
+        FirstPersonController player = obj.GetComponent<FirstPersonController>();
         player.controllerId = id;
         players.Add(player);
         Debug.Log(players.Count + " players now.");
 
         if(players.Count == 2) {
-            players[0].eyes.GetComponent<Camera>().rect = new Rect(0, .5f, 1, .5f);
-            players[1].eyes.GetComponent<Camera>().rect = new Rect(0, 0, 1, .5f);
+            players[0].m_Camera.GetComponent<Camera>().rect = new Rect(0, .5f, 1, .5f);
+            players[0].UICam.rect = new Rect(0, .5f, 1, .5f);
+            players[1].m_Camera.GetComponent<Camera>().rect = new Rect(0, 0, 1, .5f);
+            players[1].UICam.rect = new Rect(0, 0f, 1, .5f);
         } else if (players.Count == 3) {
-            players[0].eyes.GetComponent<Camera>().rect = new Rect(0, .5f, 1, .5f);
-            players[1].eyes.GetComponent<Camera>().rect = new Rect(0, 0, .5f, .5f);
-            players[2].eyes.GetComponent<Camera>().rect = new Rect(.5f, 0, .5f, .5f);
+            players[0].m_Camera.GetComponent<Camera>().rect = new Rect(0, .5f, 1, .5f);
+            players[0].UICam.rect = new Rect(0, .5f, 1, .5f);
+            players[1].m_Camera.GetComponent<Camera>().rect = new Rect(0, 0, .5f, .5f);
+            players[1].UICam.rect = new Rect(0, 0, .5f, .5f);
+            players[2].m_Camera.GetComponent<Camera>().rect = new Rect(.5f, 0, .5f, .5f);
+            players[2].UICam.rect = new Rect(.5f, 0, .5f, .5f);
         } else if (players.Count == 4) {
-            players[0].eyes.GetComponent<Camera>().rect = new Rect(0, .5f, .5f, .5f);
-            players[1].eyes.GetComponent<Camera>().rect = new Rect(.5f, .5f, .5f, .5f);
-            players[2].eyes.GetComponent<Camera>().rect = new Rect(0, 0, .5f, .5f);
-            players[3].eyes.GetComponent<Camera>().rect = new Rect(.5f, 0, .5f, .5f);
+            players[0].m_Camera.GetComponent<Camera>().rect = new Rect(0, .5f, .5f, .5f);
+            players[0].UICam.rect = new Rect(0, .5f, .5f, .5f);
+            players[1].m_Camera.GetComponent<Camera>().rect = new Rect(.5f, .5f, .5f, .5f);
+            players[1].UICam.rect = new Rect(.5f, .5f, .5f, .5f);
+            players[2].m_Camera.GetComponent<Camera>().rect = new Rect(0, 0, .5f, .5f);
+            players[2].UICam.rect = new Rect(0, 0, .5f, .5f);
+            players[3].m_Camera.GetComponent<Camera>().rect = new Rect(.5f, 0, .5f, .5f);
+            players[3].UICam.rect = new Rect(.5f, 0, .5f, .5f);
         }
     }
 }
