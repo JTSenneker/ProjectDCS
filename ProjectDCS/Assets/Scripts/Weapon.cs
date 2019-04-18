@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour
     public Transform projectileSpawnpoint;
     //public FirstPersonController fpc;
     //public PlayerManager pm;
-    private Player player;
+    private Player playerIn;
     //public List<FirstPersonController> players = new List<FirstPersonController>();
 
     public int controllerId = 0;
@@ -25,13 +25,14 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = ReInput.players.GetPlayer(controllerId);
+        FirstPersonController player = gameObject.GetComponent<FirstPersonController>();
+        playerIn = ReInput.players.GetPlayer(player.controllerId);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player.GetButton("Shoot")) {
+        if (playerIn.GetButton("Shoot")) {
             if (shootType == ShootType.PROJECTILE) {
                 // Inst.
                 Instantiate(projectile, projectileSpawnpoint.position, projectileSpawnpoint.rotation);

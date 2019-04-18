@@ -12,7 +12,7 @@ public class Interact : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerMovement player = gameObject.GetComponent<PlayerMovement>();
+        FirstPersonController player = gameObject.GetComponent<FirstPersonController>();
         playerinput = ReInput.players.GetPlayer(player.controllerId);
     }
 
