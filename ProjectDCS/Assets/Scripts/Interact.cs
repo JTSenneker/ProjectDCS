@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Interact : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class Interact : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerinput = ReInput.players.GetPlayer(ReInput.players.GetPlayerId(name));
+        PlayerMovement player = gameObject.GetComponent<PlayerMovement>();
+        playerinput = ReInput.players.GetPlayer(player.controllerId);
     }
 
     // Update is called once per frame
