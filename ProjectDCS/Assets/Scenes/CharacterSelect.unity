@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -526,6 +526,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4657422555569119478, guid: 10a412cd61395e141b0e1e5e2dec2dfb,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014253423758930213, guid: 10a412cd61395e141b0e1e5e2dec2dfb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10a412cd61395e141b0e1e5e2dec2dfb, type: 3}
 --- !u!4 &523403129 stripped
@@ -726,6 +736,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1503282992, guid: 7fd76ee4bfa00c744b1c24f6fa45c384, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1652176331, guid: 7fd76ee4bfa00c744b1c24f6fa45c384, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758856237, guid: 7fd76ee4bfa00c744b1c24f6fa45c384, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1548,6 +1566,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -68.264
       objectReference: {fileID: 0}
+    - target: {fileID: 1163985253527202849, guid: f4ff7d5dc87801545988857ff243dd88,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836559139843395856, guid: f4ff7d5dc87801545988857ff243dd88,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4ff7d5dc87801545988857ff243dd88, type: 3}
 --- !u!4 &1606276085 stripped
@@ -1768,6 +1796,21 @@ PrefabInstance:
     - target: {fileID: 7707886716586366221, guid: c5f4c0d0ce80e72499a778b76aaeb768,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711335516824859110, guid: c5f4c0d0ce80e72499a778b76aaeb768,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147506000456388949, guid: c5f4c0d0ce80e72499a778b76aaeb768,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363231663337294411, guid: c5f4c0d0ce80e72499a778b76aaeb768,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

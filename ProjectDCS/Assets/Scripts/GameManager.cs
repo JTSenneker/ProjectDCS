@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public RespawnType respawnType;
 
     public static GameManager instance;
+    public List<GameObject> playerPrefabs;
     public List<PlayerMovement> players = new List<PlayerMovement>();
     public GameObject playerPrefab;
     public int startingId = 0;
@@ -19,19 +20,30 @@ public class GameManager : MonoBehaviour
     public Quaternion respawnRot = new Quaternion(0, 0, 0, 0);
 
     void Awake() {
-            instance = this;
+        instance = this;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        players.Add(FindObjectOfType<PlayerMovement>());
-        players[0].controllerId = 0;
+        //players.Add(FindObjectOfType<PlayerMovement>());
+        //players[0].controllerId = 0;
     }
 
     // Update is called once per frame
  
+    /// <summary>
+    /// Adds all players that have joined from the character select screen
+    /// </summary>
+    public void AddPlayers()
+    {
+        for(int i = 0; i< playerPrefabs.Count; i++)
+        {
+
+            GameObject playerGO = Instantiate(playerPrefabs[i], new Vector3(i, 0, 0), Quaternion.identity);
+            playerGO.GetComponent<PlayerMovement>().controllerId = i;
+        }
+    }
 
     public void AddPlayer(int id) {
        foreach(PlayerMovement p in players) {
