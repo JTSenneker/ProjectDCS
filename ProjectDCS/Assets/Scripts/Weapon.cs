@@ -25,8 +25,9 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FirstPersonController player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
-        playerIn = ReInput.players.GetPlayer(player.controllerId);
+        controllerId = transform.parent.GetComponentInParent<FirstPersonController>().controllerId;
+        //FirstPersonController player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
+        playerIn = ReInput.players.GetPlayer(controllerId);
     }
 
     // Update is called once per frame

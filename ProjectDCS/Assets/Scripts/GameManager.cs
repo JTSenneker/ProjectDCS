@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
     public List<GameObject> playerPrefabs = new List<GameObject>();
-    public List<PlayerMovement> players = new List<PlayerMovement>();
+    public List<FirstPersonController> players = new List<FirstPersonController>();
     public GameObject playerPrefab;
     public int startingId = 0;
     public Vector3 respawnPos = new Vector3(0, 0, 0);
@@ -56,23 +56,23 @@ public class GameManager : MonoBehaviour
             if (playerPrefabs[i]!= null)
             {
                 GameObject playerGO = Instantiate(playerPrefabs[i], spawnPoints[i].position, Quaternion.identity);
-                playerGO.GetComponent<PlayerMovement>().controllerId = i;
-                players.Add(playerGO.GetComponent<PlayerMovement>());
+                playerGO.GetComponent<FirstPersonController>().controllerId = i;
+                players.Add(playerGO.GetComponent<FirstPersonController>());
             }
         }
         print(players.Count);
         if (players.Count == 2)
         {
-            players[0].eyes.GetComponent<Camera>().rect = new Rect(0, .5f, 1, .5f);
-            players[1].eyes.GetComponent<Camera>().rect = new Rect(0, 0, 1, .5f);
+            players[0].m_Camera.GetComponent<Camera>().rect = new Rect(0, .5f, 1, .5f);
+            players[1].m_Camera.GetComponent<Camera>().rect = new Rect(0, 0, 1, .5f);
             players[0].UICam.rect = new Rect(0, .5f, 1, .5f);
             players[1].UICam.rect = new Rect(0, 0, 1, .5f);
         }
         else if (players.Count == 3)
         {
-            players[0].eyes.GetComponent<Camera>().rect = new Rect(0, .5f, 1, .5f);
-            players[1].eyes.GetComponent<Camera>().rect = new Rect(0, 0, .5f, .5f);
-            players[2].eyes.GetComponent<Camera>().rect = new Rect(.5f, 0, .5f, .5f);
+            players[0].m_Camera.GetComponent<Camera>().rect = new Rect(0, .5f, 1, .5f);
+            players[1].m_Camera.GetComponent<Camera>().rect = new Rect(0, 0, .5f, .5f);
+            players[2].m_Camera.GetComponent<Camera>().rect = new Rect(.5f, 0, .5f, .5f);
 
             players[0].UICam.rect = new Rect(0, .5f, 1, .5f);
             players[1].UICam.rect = new Rect(0, 0, .5f, .5f);
@@ -80,10 +80,10 @@ public class GameManager : MonoBehaviour
         }
         else if (players.Count == 4)
         {
-            players[0].eyes.GetComponent<Camera>().rect = new Rect(0, .5f, .5f, .5f);
-            players[1].eyes.GetComponent<Camera>().rect = new Rect(.5f, .5f, .5f, .5f);
-            players[2].eyes.GetComponent<Camera>().rect = new Rect(0, 0, .5f, .5f);
-            players[3].eyes.GetComponent<Camera>().rect = new Rect(.5f, 0, .5f, .5f);
+            players[0].m_Camera.GetComponent<Camera>().rect = new Rect(0, .5f, .5f, .5f);
+            players[1].m_Camera.GetComponent<Camera>().rect = new Rect(.5f, .5f, .5f, .5f);
+            players[2].m_Camera.GetComponent<Camera>().rect = new Rect(0, 0, .5f, .5f);
+            players[3].m_Camera.GetComponent<Camera>().rect = new Rect(.5f, 0, .5f, .5f);
 
             players[0].UICam.rect = new Rect(0, .5f, .5f, .5f);
             players[1].UICam.rect = new Rect(.5f, .5f, .5f, .5f);

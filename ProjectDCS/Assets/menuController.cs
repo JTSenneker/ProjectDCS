@@ -8,4 +8,8 @@ public class menuController : MonoBehaviour {
     void OnEnable() {
         buttons[0].Select();
     }
+    void Start()
+    {
+        buttons[0].Select();
+    }
 }
