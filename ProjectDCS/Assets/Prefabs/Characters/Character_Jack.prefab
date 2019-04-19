@@ -777,6 +777,7 @@ MonoBehaviour:
   controllerId: 0
   speed: 7
   eyes: {fileID: 8852190972723606394}
+  UICam: {fileID: 6508277826982919260}
   rb: {fileID: 1163985253527202849}
   jumpForce: 5
   mouseSensitivity: 100

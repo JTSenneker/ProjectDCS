@@ -673,6 +673,7 @@ MonoBehaviour:
   controllerId: 0
   speed: 7
   eyes: {fileID: 8776926015462310205}
+  UICam: {fileID: 3309987717556708558}
   rb: {fileID: 4657422555569119478}
   jumpForce: 5
   mouseSensitivity: 100
@@ -1835,9 +1836,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.5
     width: 1
-    height: 1
+    height: 0.5
   near clip plane: 0.1
   far clip plane: 1000
   field of view: 70

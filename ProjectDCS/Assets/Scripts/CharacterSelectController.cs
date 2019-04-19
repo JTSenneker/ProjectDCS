@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Rewired;
+using UnityEngine.SceneManagement;
 
 public class CharacterSelectController : MonoBehaviour
 {
     public GameObject JoinMenu;
     public GameObject characterMenu;
+    public GameObject readyScreen;
 
     public TextMeshProUGUI classNameText;
     public RawImage characterPortrait;
@@ -18,6 +20,10 @@ public class CharacterSelectController : MonoBehaviour
     public int playerID = 0;
 
     private Player player;
+    public GameObject[] characterPrefabs;
+    private int characterIndex = 0;
+    private bool allPlayersReady;
+    public bool isReady { get; set; }
 
     void Start()
     {
@@ -31,6 +37,46 @@ public class CharacterSelectController : MonoBehaviour
         {
             JoinGame();
         }
+        if (characterMenu.activeInHierarchy && !isReady)
+        {
+            if (player.GetButtonDown("Horizontal"))
+            {
+                characterIndex++;
+                if (characterIndex == characterPrefabs.Length) characterIndex = 0;
+                characterPortrait.texture = characterRenderTextures[characterIndex];
+                classNameText.text = characterPrefabs[characterIndex].name;
+            }
+            if (player.GetNegativeButtonDown("Horizontal"))
+            {
+                characterIndex--;
+                if (characterIndex == -1) characterIndex = characterPrefabs.Length-1;
+                characterPortrait.texture = characterRenderTextures[characterIndex];
+                classNameText.text = characterPrefabs[characterIndex].name;
+            }
+
+            if (player.GetButtonDown("Select"))
+            {
+                ReadyUp(characterIndex);
+            }
+        }
+        if (isReady)
+        {
+            List<CharacterSelectController> characterSelects = new List<CharacterSelectController>();
+            characterSelects.AddRange(FindObjectsOfType<CharacterSelectController>());
+            foreach(CharacterSelectController character in characterSelects)
+            {
+                if (character.JoinMenu.activeInHierarchy) continue;
+                if (!character.isReady) return;
+                else allPlayersReady = true;
+            }
+        }
+        if (allPlayersReady)
+        {
+            if (player.GetButtonDown("Join"))
+            {
+                SceneManager.LoadScene("MainDungeon");
+            }
+        }
     }
 
     void JoinGame()
@@ -43,5 +89,12 @@ public class CharacterSelectController : MonoBehaviour
     {
         JoinMenu.SetActive(true);
         characterMenu.SetActive(false);
+    }
+    void ReadyUp(int characterIndex)
+    {
+        isReady = true;
+        GameManager.instance.playerPrefabs.Insert(playerID,characterPrefabs[characterIndex]);
+        GameManager.instance.playerPrefabs.RemoveAt(playerID + 1);
+        readyScreen.SetActive(true);
     }
 }
