@@ -15,5 +15,4 @@ public class OptionsMenu : MonoBehaviour {
     public void setQuality(int qualityIndex) {
         QualitySettings.SetQualityLevel(qualityIndex);
     }
-   
 }

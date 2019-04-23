@@ -3,30 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour {
-
     public static bool isPaused = false;
-    public GameObject pauseMenuUI;
+    public GameObject pauseCanvas; //canvas for the pause menu
+    public GameObject mainCanvas; //main canvas for menus
+    public GameObject PauseMenuUI; //UI for the pause menu (buttons, etc)
+
 
     // Update is called once per frame
     void Update() {
         if(Input.GetKeyDown(KeyCode.P)) {
             if(isPaused) {
-                Resume();
+                resume();
             } else {
-                Pause();
+                pause();
             }
         }    
     }
 
-    void Resume() {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1;
+   public void resume() {
         isPaused = false;
+        Time.timeScale = 1; //time is normal speed
+
+        PauseMenuUI.SetActive(false);
+        pauseCanvas.SetActive(false);
+        Debug.Log(Time.timeScale);
+        
     }
 
-    void Pause() {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0;
+    void pause() {
         isPaused = true;
+        PauseMenuUI.SetActive(true);
+        pauseCanvas.SetActive(true);
+        Time.timeScale = 0; //completely freeze game
+        
+    }
+
+    public void QuitGame() {
+        Debug.Log("Quit Game from Pause Menu");
     }
 }
