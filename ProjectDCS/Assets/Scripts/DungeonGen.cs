@@ -28,6 +28,8 @@ public class DungeonGen : MonoBehaviour
                 GameObject randomRoom = roomPrefabs[Random.Range(0, roomPrefabs.Length)];
 
                 Instantiate(randomRoom, new Vector3(x * (roomW), 0, y * (roomH)), Quaternion.identity);
+               
+                
             }
         }
     }
