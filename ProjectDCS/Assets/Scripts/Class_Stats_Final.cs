@@ -11,6 +11,10 @@ public class Class_Stats_Final : MonoBehaviour {
     private float currentArmor;
     public float ADS;
     public float abilityCooldown;
+    public float RaycastDistance;
+    public float timeToUnlock;
+    private float timer;
+    
 
     public sClass job;
 
@@ -19,9 +23,19 @@ public class Class_Stats_Final : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (job == sClass.sniper)
         {
-            UseAbility();
+            if (Input.GetButton("Fire1"))
+            {
+                UseAbility();
+            }
+        }
+        else
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                UseAbility();
+            }
         }
     }
 
@@ -37,11 +51,29 @@ public class Class_Stats_Final : MonoBehaviour {
                 //develop MEDIC ability
                 break;
             case sClass.tank:
-                //develop TANK ability
+                GameObject hamsterBall = Instantiate(abilityObject, spawnPoint.position, Quaternion.identity);
                 break;
             case sClass.sniper:
-                //develop SNIPER ability
-                break;
+                RaycastHit Check;
+
+                if (Physics.Raycast(spawnPoint.position, spawnPoint.forward, out Check, RaycastDistance))
+                {
+                    print(Check.collider.name);
+                    opendoor doorCheck = Check.collider.GetComponent<opendoor>();
+                    if (doorCheck != null)
+                    {
+                        if (doorCheck.locked)
+                        {
+                            timer += Time.deltaTime;
+                            if (timer >= timeToUnlock)
+                            {
+                                Destroy(doorCheck.gameObject);
+                            }
+                        }
+                    }
+                }
+                else timer = 0;
+                    break;
 
             //raycast and timer for lockpick
         }
