@@ -25,9 +25,9 @@ public class enimiemovment : MonoBehaviour
     }
 
      public void SetTarget(Transform Target)
-    {
+     {
         target = Target; 
-    }
+     }
 
 
 }

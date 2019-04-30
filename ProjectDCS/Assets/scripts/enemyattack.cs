@@ -25,11 +25,11 @@ public class enemyattack : MonoBehaviour
     void Start()
     {
         movement = GetComponent<enimiemovment>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+       // target = GameObject.FindGameObjectWithTag("Player").transform;
         mytransform = transform;
         maxditcance = 3;
         cooldowntime = 1;
-
+        GetComponent<enimiemovment>().enabled = false;
 
 
     }

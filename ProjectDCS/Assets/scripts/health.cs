@@ -39,6 +39,11 @@ public class health : MonoBehaviour
 
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        takedamage(10);
+    }
+
     
 
 

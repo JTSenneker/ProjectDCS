@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291ddf04e107b534f9c5f1621470421a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
   target: {fileID: 0}
 --- !u!114 &1692322267956018762
 MonoBehaviour:
@@ -143,9 +144,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190a230dc4999284692eb47d116de4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBetweenAttacks: 0.5
   maxditcance: 0
   cooldowntime: 0
+  healthtext: {fileID: 0}
+  state: 0
   target: {fileID: 0}
+  ph: {fileID: 0}
+  enemyhealth: {fileID: 1692322267956018757}
 --- !u!114 &1692322267956018757
 MonoBehaviour:
   m_ObjectHideFlags: 0
