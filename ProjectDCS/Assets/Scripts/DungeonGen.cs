@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class DungeonGen : MonoBehaviour
 {
     public GameObject player;
@@ -19,7 +19,7 @@ public class DungeonGen : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         for (int x = 0; x < cols; x++)
         {
@@ -27,7 +27,8 @@ public class DungeonGen : MonoBehaviour
             {
                 GameObject randomRoom = roomPrefabs[Random.Range(0, roomPrefabs.Length)];
 
-                Instantiate(randomRoom, new Vector3(x * (roomW), 0, y * (roomH)), Quaternion.identity);
+                GameObject room = Instantiate(randomRoom, new Vector3(x * (roomW), 0, y * (roomH)), Quaternion.identity);
+                FindObjectOfType<LevelManager>().navmeshsurfaces.Add(room.GetComponent<NavMeshSurface>());
             }
         }
     }
