@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5400000}
   - component: {fileID: 8200000}
   - component: {fileID: 2695334925002407417}
+  - component: {fileID: 3214753814989784569}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Player
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -312,6 +313,27 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &3214753814989784569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9d870f497427f41b3ce460f75aa39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  maxArmor: 0
+  moveSpeed: 0
+  sprintSpeed: 0
+  ADS: 0
+  abilityCooldown: 0
+  job: 0
+  abilityObject: {fileID: 100000, guid: 753ea9ccf9eee6c42a0954ec8663b992, type: 3}
+  spawnPoint: {fileID: 0}
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,10 +694,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 400000}
     m_Modifications:
-    - target: {fileID: 589667946, guid: 9b67739858d8dc140b9534930f220fba, type: 3}
-      propertyPath: m_Name
-      value: animated Player
-      objectReference: {fileID: 0}
     - target: {fileID: 589667948, guid: 9b67739858d8dc140b9534930f220fba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -719,6 +737,10 @@ PrefabInstance:
     - target: {fileID: 589667948, guid: 9b67739858d8dc140b9534930f220fba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 589667946, guid: 9b67739858d8dc140b9534930f220fba, type: 3}
+      propertyPath: m_Name
+      value: animated Player
       objectReference: {fileID: 0}
     - target: {fileID: 534147424, guid: 9b67739858d8dc140b9534930f220fba, type: 3}
       propertyPath: m_Materials.Array.data[0]

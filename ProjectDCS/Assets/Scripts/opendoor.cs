@@ -6,6 +6,8 @@ using UnityEngine;
 public class opendoor : MonoBehaviour
 {
     bool interactive;
+    public bool locked = false;
+
    public void Open()
    {
         Destroy(gameObject);
