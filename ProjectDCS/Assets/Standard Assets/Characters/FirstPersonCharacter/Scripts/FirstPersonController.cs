@@ -47,6 +47,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // I added
         Player player;
         public int controllerId = 0;
+        Animator anim;
 
         // Use this for initialization
         private void Start()
@@ -62,6 +63,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+            anim = GetComponentInChildren<Animator>();
         }
 
 
@@ -130,6 +132,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     PlayJumpSound();
                     m_Jump = false;
                     m_Jumping = true;
+                    anim.SetTrigger("Jump");
                 }
             }
             else
@@ -224,11 +227,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
             bool sprinting = true;
-            if (!player.GetButton("Sprint") && !player.GetButton("Up")) {
+            if (!player.GetButton("Sprint") && !player.GetButton("Vertical")) {
                 sprinting = false;
             }
             m_IsWalking = !sprinting;
 #endif
+            if (m_IsWalking) {
+                anim.SetBool("Walking", true);
+            } else {
+                anim.SetBool("Walking", false);
+            }
+
+            if (sprinting) {
+                anim.SetBool("Sprinting", true);
+            } else {
+                anim.SetBool("Sprinting", false);
+            }
+
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
             m_Input = new Vector2(horizontal, vertical);

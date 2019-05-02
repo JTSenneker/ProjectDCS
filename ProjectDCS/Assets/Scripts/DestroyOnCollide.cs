@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyOnCollide : MonoBehaviour
 {
     void OnTriggerEnter(Collider other) {
-        Destroy(gameObject);
+        Debug.Log(other.name);
+        if(!other.CompareTag("Player"))Destroy(gameObject);
     }
 }

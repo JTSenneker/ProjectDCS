@@ -7,6 +7,8 @@ TagManager:
   - Speed_Small_Prefab
   - Speed_Normal_Prefab
   - Speed_Big_Prefab
+  - Bullet
+  - GameManager
   layers:
   - Default
   - TransparentFX
