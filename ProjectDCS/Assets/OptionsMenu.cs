@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class OptionsMenu : MonoBehaviour {
     public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
-
+    public Toggle fullscreenToggle;
     Resolution[] resolutions;
 
     void Start() {

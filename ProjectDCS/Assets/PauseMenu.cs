@@ -9,11 +9,13 @@ public class PauseMenu : MonoBehaviour {
     public GameObject mainCanvas; //main canvas for menus
     public GameObject PauseMenuUI; //UI for the pause menu (buttons, etc)
     public Dropdown resolutionDropdown;
+    public Toggle fullscreenToggle;
     Resolution[] resolutions;
 
     void Start() {
         resolutions = Screen.resolutions;
 
+        //clear the placeholder resolutions from the list
         resolutionDropdown.ClearOptions();
 
         //create a list of avaiable resolutions that the game can run at
@@ -56,7 +58,7 @@ public class PauseMenu : MonoBehaviour {
    public void resume() {
         isPaused = false;
         Time.timeScale = 1; //time is normal speed
-        PauseMenuUI.SetActive(false);
+        //PauseMenuUI.SetActive(false);
         pauseCanvas.SetActive(false);
         Debug.Log(Time.timeScale);
         
