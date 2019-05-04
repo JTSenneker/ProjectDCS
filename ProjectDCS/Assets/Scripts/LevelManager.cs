@@ -9,6 +9,8 @@ public class LevelManager : MonoBehaviour
     public Transform[] spawnPoints;
     public DungeonGen dungeon;
 
+
+    public AudioClip levelMusic;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class LevelManager : MonoBehaviour
         {
             Surface.BuildNavMesh();
         }
+        MusicManager.Instance.ChangeMusic(levelMusic);
     }
 
     // Update is called once per frame

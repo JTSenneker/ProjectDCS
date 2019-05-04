@@ -74,6 +74,12 @@ public class CharacterSelectController : MonoBehaviour
         {
             if (player.GetButtonDown("Join"))
             {
+                MusicManager.Instance.CallFadeOut(3);
+                
+                
+            }
+            if (MusicManager.Instance.audioSource.volume <= .01f)
+            {
                 SceneManager.LoadScene("MainDungeon");
             }
         }
