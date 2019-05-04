@@ -47,17 +47,18 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void AddPlayers()
     {
-        //foreach(GameObject obj in playerPrefabs)
-        //{
-        //    if (obj.GetComponent<PlayerMovement>() == null) playerPrefabs.Remove(obj);
+        //foreach (GameObject obj in playerPrefabs) {
+        //    if (obj.GetComponent<FirstPersonController>() == null) playerPrefabs.Remove(obj);
         //}
-        for(int i = 0; i< playerPrefabs.Count; i++)
+        for (int i = 0; i < playerPrefabs.Count; i++)
         {
-            if (playerPrefabs[i]!= null)
+            if (playerPrefabs[i].GetComponent<FirstPersonController>() != null)
             {
-                GameObject playerGO = Instantiate(playerPrefabs[i], spawnPoints[i].position, Quaternion.identity);
-                playerGO.GetComponent<FirstPersonController>().controllerId = i;
-                players.Add(playerGO.GetComponent<FirstPersonController>());
+                if (playerPrefabs[i].GetComponent<FirstPersonController>() != null) {
+                    GameObject playerGO = Instantiate(playerPrefabs[i], spawnPoints[i].position, Quaternion.identity);
+                    playerGO.GetComponent<FirstPersonController>().controllerId = i;
+                    players.Add(playerGO.GetComponent<FirstPersonController>());
+                }
             }
         }
         print(players.Count);
