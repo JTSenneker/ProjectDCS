@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public RespawnType respawnType;
     public Transform[] spawnPoints;
 
-    public static GameManager instance;
+    public static GameManager Instance;
     public List<GameObject> playerPrefabs = new List<GameObject>();
     public List<FirstPersonController> players = new List<FirstPersonController>();
     public GameObject playerPrefab;
@@ -25,11 +25,20 @@ public class GameManager : MonoBehaviour
     public Quaternion respawnRot = new Quaternion(0, 0, 0, 0);
 
     void Awake() {
-        instance = this;
-        DontDestroyOnLoad(this.gameObject);
-        for(int i = 0; i < 4; i++)
+        //if we don't already have an instance of this class
+        if (Instance == null)
         {
-            playerPrefabs.Add(new GameObject());
+            //assign this particular instance of the script to the instance property
+            Instance = this;
+            DontDestroyOnLoad(gameObject);//once we've done this, tell us not to destroy this object when loading a new scene
+        }
+        else//if there's already an instance of this script we want to destroy this object
+        {
+            Destroy(gameObject);
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            playerPrefabs.Add(playerPrefab);
         }
     }
 

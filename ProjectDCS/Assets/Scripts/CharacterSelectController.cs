@@ -99,8 +99,8 @@ public class CharacterSelectController : MonoBehaviour
     void ReadyUp(int characterIndex)
     {
         isReady = true;
-        GameManager.instance.playerPrefabs.Insert(playerID,characterPrefabs[characterIndex]);
-        GameManager.instance.playerPrefabs.RemoveAt(playerID + 1);
+        GameManager.Instance.playerPrefabs.Insert(playerID,characterPrefabs[characterIndex]);
+        GameManager.Instance.playerPrefabs.RemoveAt(playerID + 1);
         readyScreen.SetActive(true);
     }
 }

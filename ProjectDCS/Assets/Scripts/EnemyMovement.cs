@@ -23,8 +23,9 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         //target = GameObject.FindGameObjectWithTag("Player").transform;
         foreach (FirstPersonController get in FindObjectsOfType<FirstPersonController>()) {
-            targets.Add(get.GetComponent<Transform>());
+            targets.Add(get.transform);
         }
+        print(targets.Count);
         SelectTarget();
         Invoke("SwitchToAttack", 5);
     }

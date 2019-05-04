@@ -12,10 +12,11 @@ public class LevelManager : MonoBehaviour
 
     public AudioClip levelMusic;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        GameManager.instance.spawnPoints = spawnPoints;
-        GameManager.instance.AddPlayers();
+        GameManager.Instance.spawnPoints = spawnPoints;
+        GameManager.Instance.AddPlayers();
+        Debug.Log(navmeshsurfaces.Count);
         foreach(NavMeshSurface Surface in navmeshsurfaces)
         {
             Surface.BuildNavMesh();

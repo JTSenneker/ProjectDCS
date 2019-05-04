@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         if (player.GetButtonDown("Join")) {
-            GameManager.instance.AddPlayer(controllerId);
+            GameManager.Instance.AddPlayer(controllerId);
         }
     }
 }
