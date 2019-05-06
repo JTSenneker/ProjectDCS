@@ -18,6 +18,7 @@ public class EnemyMovement : MonoBehaviour
     public List<Transform> targets = new List<Transform>();
     float rangeSqr = 10;
     bool canAttack = true;
+    public Animator anim;
 
     void Start() {
         agent = GetComponent<NavMeshAgent>();
@@ -52,6 +53,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void SwitchToAttack() {
         enemyState = EnemyState.ATTACKING;
+        anim.SetBool("Walking", true);
         canAttack = true;
     }
 
@@ -59,6 +61,7 @@ public class EnemyMovement : MonoBehaviour
         GetComponent<BossShoot>().enabled = false;
         SelectTarget();
         enemyState = EnemyState.WALKING;
+        anim.SetBool("Walking", true);
         Invoke("SwitchToAttack", 5);
     }
 

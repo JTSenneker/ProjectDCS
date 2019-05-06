@@ -236,6 +236,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 anim.SetBool("Walking", true);
             } else {
                 anim.SetBool("Walking", false);
+                anim.SetBool("Sprinting", false);
             }
 
             if (sprinting) {
