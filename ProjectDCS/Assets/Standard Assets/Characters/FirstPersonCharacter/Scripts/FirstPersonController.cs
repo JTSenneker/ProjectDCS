@@ -48,6 +48,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         Player player;
         public int controllerId = 0;
         Animator anim;
+        bool sprinting;
+
 
         // Use this for initialization
         private void Start()
