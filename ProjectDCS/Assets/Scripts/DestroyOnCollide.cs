@@ -12,6 +12,6 @@ public class DestroyOnCollide : MonoBehaviour
         {
             other.GetComponent<Class_Stats_Final>().Hurt();
         }
-        if (!other.CompareTag(safeTag)) Destroy(gameObject);
+        if (other.tag != safeTag) Destroy(gameObject);
     }
 }
