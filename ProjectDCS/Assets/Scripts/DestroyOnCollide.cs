@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class DestroyOnCollide : MonoBehaviour
 {
+    public string safeTag;
     void OnTriggerEnter(Collider other) {
         Debug.Log(other.name);
-        if(!other.CompareTag("Player"))Destroy(gameObject);
+        
+        if(other.GetComponent<Class_Stats_Final>() != null)
+        {
+            other.GetComponent<Class_Stats_Final>().Hurt();
+        }
+        if (other.tag != safeTag) Destroy(gameObject);
     }
 }

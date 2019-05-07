@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GUIHandler : MonoBehaviour
 {
-
+    public Class_Stats_Final stats;
     public Image healthBar;
     public Image armorBar;
     public Image abilityIcon;
@@ -23,6 +23,8 @@ public class GUIHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        armorBar.fillAmount = stats.armorPercentage;
+        healthBar.fillAmount = stats.healthPercentage;
+        abilityIcon.fillAmount = stats.cooldownProgress;
     }
 }

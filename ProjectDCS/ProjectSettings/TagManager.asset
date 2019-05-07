@@ -9,6 +9,7 @@ TagManager:
   - Speed_Big_Prefab
   - Bullet
   - GameManager
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
+using UnityStandardAssets.Characters.FirstPerson;
 public enum sClass { tank, medic, sniper, joat };
 public class Class_Stats_Final : MonoBehaviour {
     public float maxHealth;
@@ -13,28 +15,50 @@ public class Class_Stats_Final : MonoBehaviour {
     public float abilityCooldown;
     public float RaycastDistance;
     public float timeToUnlock;
+
+    public float cooldownProgress { get { return _cooldownProgress; } }
+    public float armorPercentage { get { return (currentArmor / maxArmor); } }
+    public float healthPercentage { get { return (currentHealth / maxHealth); } }
+
     private float timer;
-    
+    private float _cooldownProgress;
+    private Player player;
 
     public sClass job;
 
     public GameObject abilityObject;
     public Transform spawnPoint;
 
+    private void Start()
+    {
+        currentArmor = maxArmor;
+        currentHealth = maxHealth;
+        timer = abilityCooldown;
+        player = ReInput.players.GetPlayer(GetComponent<FirstPersonController>().controllerId);
+    }
+
     void Update()
     {
+        timer += Time.deltaTime;
+        if (timer >= abilityCooldown) timer = abilityCooldown;
+        _cooldownProgress = timer / abilityCooldown;
+
+        if (currentHealth >= maxHealth) currentHealth = maxHealth;
+        if (currentArmor >= maxArmor) currentArmor = maxArmor;
+        
         if (job == sClass.sniper)
         {
-            if (Input.GetButton("Fire1"))
+            if (player.GetButton("Ability"))
             {
                 UseAbility();
             }
         }
         else
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (player.GetButtonDown("Ability") && timer >= abilityCooldown) 
             {
                 UseAbility();
+                timer = 0;
             }
         }
     }
@@ -48,10 +72,12 @@ public class Class_Stats_Final : MonoBehaviour {
                 waterBalloon.GetComponent<Rigidbody>().AddForceAtPosition(spawnPoint.forward * 500, transform.position);
                 break;
             case sClass.medic:
-                //develop MEDIC ability
+                GameObject Medkit = Instantiate(abilityObject, spawnPoint.position, Quaternion.identity);
+                Medkit.tag = "Player";
                 break;
             case sClass.tank:
                 GameObject hamsterBall = Instantiate(abilityObject, spawnPoint.position, Quaternion.identity);
+                hamsterBall.tag = "Player";
                 break;
             case sClass.sniper:
                 RaycastHit Check;
@@ -77,5 +103,28 @@ public class Class_Stats_Final : MonoBehaviour {
 
             //raycast and timer for lockpick
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            currentHealth -= 10;
+        }
+    }
+
+    public void Hurt()
+    {
+        if(currentArmor > 0)
+        {
+            currentArmor -= 10;
+            if (currentArmor <= 0) currentArmor = 0;
+        }
+        else
+        {
+            currentHealth -= 10;
+        }
+        print("Armor: " + currentArmor + ", Health: " + currentHealth);
     }
 }
