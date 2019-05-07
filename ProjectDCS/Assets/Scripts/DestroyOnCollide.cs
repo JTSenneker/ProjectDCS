@@ -10,7 +10,10 @@ public class DestroyOnCollide : MonoBehaviour
         
         if(other.GetComponent<Class_Stats_Final>() != null)
         {
-            other.GetComponent<Class_Stats_Final>().Hurt();
+            if(tag != "Health")
+                other.GetComponent<Class_Stats_Final>().Hurt();
+            else
+                other.GetComponent<Class_Stats_Final>().currentHealth += 30;
         }
         if (other.tag != safeTag) Destroy(gameObject);
     }

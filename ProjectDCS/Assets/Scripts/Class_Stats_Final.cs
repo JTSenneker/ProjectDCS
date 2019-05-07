@@ -73,7 +73,7 @@ public class Class_Stats_Final : MonoBehaviour {
                 break;
             case sClass.medic:
                 GameObject Medkit = Instantiate(abilityObject, spawnPoint.position, Quaternion.identity);
-                Medkit.tag = "Player";
+                Medkit.tag = "Health";
                 break;
             case sClass.tank:
                 GameObject hamsterBall = Instantiate(abilityObject, spawnPoint.position, Quaternion.identity);
@@ -105,12 +105,13 @@ public class Class_Stats_Final : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTiggerEnter(Collider collision)
     {
         
-        if(collision.gameObject.CompareTag("Enemy"))
+        if(collision.gameObject.CompareTag("Health"))
         {
-            currentHealth -= 10;
+            currentHealth += 10;
+            Destroy(collision.gameObject);
         }
     }
 

@@ -16,14 +16,15 @@ public class LevelManager : MonoBehaviour
     {
         GameManager.Instance.spawnPoints = spawnPoints;
         GameManager.Instance.AddPlayers();
-        Debug.Log(navmeshsurfaces.Count);
         foreach(NavMeshSurface Surface in navmeshsurfaces)
         {
             Surface.BuildNavMesh();
         }
         MusicManager.Instance.ChangeMusic(levelMusic);
     }
-
+    void Start() {
+     
+    }
     // Update is called once per frame
     void Update()
     {

@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class BossDefeated : MonoBehaviour
 {
-    public void OnDestroy()
-    {
-        SceneManager.LoadScene("Credits");
+    void Update() {
+        if(GetComponent<Boss>().health <= 0) {
+            SceneManager.LoadScene("Credits");
+        }
     }
 }

@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
         //foreach (GameObject obj in playerPrefabs) {
         //    if (obj.GetComponent<FirstPersonController>() == null) playerPrefabs.Remove(obj);
         //}
+        players.Clear();
         for (int i = 0; i < playerPrefabs.Count; i++)
         {
             if (playerPrefabs[i].GetComponent<FirstPersonController>() != null)
@@ -66,6 +67,7 @@ public class GameManager : MonoBehaviour
                 if (playerPrefabs[i].GetComponent<FirstPersonController>() != null) {
                     GameObject playerGO = Instantiate(playerPrefabs[i], spawnPoints[i].position, Quaternion.identity);
                     playerGO.GetComponent<FirstPersonController>().controllerId = i;
+                    Debug.Log(playerGO.name);
                     players.Add(playerGO.GetComponent<FirstPersonController>());
                 }
             }

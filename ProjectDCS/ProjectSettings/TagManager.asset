@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - GameManager
   - Enemy
+  - Health
   layers:
   - Default
   - TransparentFX

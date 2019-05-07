@@ -421,6 +421,23 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
+--- !u!114 &9220994216465854653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3138457464707261965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c68d3812cfee69e4db568d79e97b8577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootType: 0
+  projectile: {fileID: 2788439056149151400, guid: a4edb198c0bd5e747b847e28b858c349,
+    type: 3}
+  projectileSpawnpoint: {fileID: 6150424740743133521}
+  controllerId: 0
 --- !u!1 &7262384858425075560
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,6 +708,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 400000}
     m_Modifications:
+    - target: {fileID: 589667946, guid: 9b67739858d8dc140b9534930f220fba, type: 3}
+      propertyPath: m_Name
+      value: animated Player
+      objectReference: {fileID: 0}
     - target: {fileID: 589667948, guid: 9b67739858d8dc140b9534930f220fba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -734,10 +755,6 @@ PrefabInstance:
     - target: {fileID: 589667948, guid: 9b67739858d8dc140b9534930f220fba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 589667946, guid: 9b67739858d8dc140b9534930f220fba, type: 3}
-      propertyPath: m_Name
-      value: animated Player
       objectReference: {fileID: 0}
     - target: {fileID: 534147424, guid: 9b67739858d8dc140b9534930f220fba, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -840,10 +857,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 400002}
     m_Modifications:
-    - target: {fileID: 100000, guid: a9d5b0407223e644da2eed34674d9e00, type: 3}
-      propertyPath: m_Name
-      value: Special Class Sword
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a9d5b0407223e644da2eed34674d9e00, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.133
@@ -900,6 +913,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a9d5b0407223e644da2eed34674d9e00, type: 3}
+      propertyPath: m_Name
+      value: Special Class Sword
+      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: a9d5b0407223e644da2eed34674d9e00, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -914,6 +931,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a8b082211aad7bc4e8345422c941aef5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9d5b0407223e644da2eed34674d9e00, type: 3}
+--- !u!1 &3138457464707261965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: a9d5b0407223e644da2eed34674d9e00,
+    type: 3}
+  m_PrefabInstance: {fileID: 3138457464707293357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3138457464707168813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: a9d5b0407223e644da2eed34674d9e00,
